@@ -1,23 +1,41 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import colors from '../../utils/style/colors'
+import logo from '../../utils/images/logo.png';
+
+const HeaderWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 35px 0;
+`
+
+const StyledImg = styled.img`
+    width: 210px;
+    height: 68px;
+`
+
+const StyledNav = styled.nav`
+    display: flex;
+    gap: 60px;
+`
 
 const StyledLink = styled(Link)`
-    padding: 15px;
-    color: #8186a0;
+    color: black;
     text-decoration: none;
-    font-size: 18px;
-    ${(props) =>
-        props.$isFullLink &&
-        `color: white; border-radius: 30px; background-color: ${colors.primary};`}
+    font-weight: 500;
+    font-size: 24px;
 `
 
 function Header() {
     return (
-        <nav>
-            <StyledLink to="/">Accueil</StyledLink>
-            <StyledLink to="/about">A Propos</StyledLink>
-        </nav>
+        <HeaderWrapper>
+            <StyledImg src={logo} alt="Logo Kasa"></StyledImg>
+            <StyledNav>
+                <StyledLink to="/">Accueil</StyledLink>
+                <StyledLink to="/about">A Propos</StyledLink>
+            </StyledNav>
+        </HeaderWrapper>
     )
 }
 
