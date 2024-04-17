@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
-import Housing from './pages/Housing';
+import Properties from './pages/Properties';
+import Error from './pages/Error';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import Error from './components/Error';
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
@@ -25,7 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
-                <Route path="/housing" element={<Housing />} />
+                <Route path="/properties" element={<Properties />} />
                 <Route path="*" element={<Error />} />
             </Routes>
             <Footer />

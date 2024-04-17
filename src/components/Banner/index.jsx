@@ -1,0 +1,33 @@
+import styled from 'styled-components'
+
+const BannerWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+  background-image: linear-gradient(
+    rgba(0, 0, 0, 0.5), 
+    rgba(0, 0, 0, 0.5)
+    ),url(${props => props.$backgroundImg});
+  background-position: 50% 50%;
+  background-size: cover;
+  height: 220px;
+  h1 {
+    color: white;
+    font-size: 48px;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px black;
+  }
+`
+
+function Banner({message, backgroundImg}) {
+
+    return (
+        <BannerWrapper $backgroundImg={backgroundImg}>
+            <h1>{message}</h1>
+        </BannerWrapper>
+    )
+}
+
+export default Banner

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import logo from '../../utils/images/logo.png';
 
@@ -20,20 +20,24 @@ const StyledNav = styled.nav`
     gap: 60px;
 `
 
-const StyledLink = styled(Link)`
+const StyledNavLink = styled(NavLink)`
     color: black;
     text-decoration: none;
     font-weight: 500;
     font-size: 24px;
+    &.active {
+        text-decoration : underline;
+    }
 `
 
 function Header() {
+
     return (
         <HeaderWrapper>
             <StyledImg src={logo} alt="Logo Kasa"></StyledImg>
             <StyledNav>
-                <StyledLink to="/">Accueil</StyledLink>
-                <StyledLink to="/about">A Propos</StyledLink>
+                <StyledNavLink to="/">Accueil</StyledNavLink>
+                <StyledNavLink to="/about">A Propos</StyledNavLink>
             </StyledNav>
         </HeaderWrapper>
     )
