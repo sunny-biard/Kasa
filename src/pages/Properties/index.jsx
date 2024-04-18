@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons/faStar'
@@ -9,21 +9,24 @@ import Slideshow from '../../components/Slideshow';
 const PropertiesWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 30px;
     padding: 30px 0;
+`
+
+const GlobalSectionWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 0;
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+    }
 `
 
 const FirstSectionWrapper = styled.div`
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-`
-
-const PropertyDiv = styled.div`
-    display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 10px;
     h1 {
         color: #FF6060;
         font-size: 36px;
@@ -38,10 +41,20 @@ const PropertyDiv = styled.div`
     }
 `
 
+const SecondSectionWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 768px) {
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        align-items: center;
+    }
+`
+
 const HostDiv = styled.div`
     display: flex;
     flex-direction: row;
-    align-items: center;
     gap: 10px;
     img {
         width: 64px;
@@ -60,18 +73,9 @@ const HostDiv = styled.div`
     }
 `
 
-const SecondSectionWrapper = styled.div`
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-`
-
 const StarsWrapper = styled.div`
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-    align-items: center;
     gap: 5px;
 `
 
@@ -100,6 +104,11 @@ const CollapsesWrapper = styled.div`
         font-size: 18px;
         font-weight: 700;
     }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        gap: 20px;
+    }
 `
 
 const StyledList = styled.ul`
@@ -111,22 +120,30 @@ const StyledList = styled.ul`
 function Properties() {
 
     const location = useLocation();
+    const navigate = useNavigate();
     const state = location.state;
 
     const [property, setProperty] = useState([]);
 
     useEffect(() => {
         fetch(`http://localhost:8080/api/properties/${state.item.id}`)
-            .then(response => response.json())
+            .then((resp) => resp.json())
             .then(data => {
-                setProperty(data);
-                console.log(data);
+
+                if(data === "Not found"){
+                    
+                    navigate("*");
+                }
+                else {
+                    
+                    setProperty(data);
+                }
             })
             .catch((error) => {
-                console.error(error)
+                console.log(error);
             });
 
-    }, [state.item.id]);
+    }, [state.item.id, navigate]);
 
     const rating = (n) => {
         
@@ -144,25 +161,25 @@ function Properties() {
     return (
 
         <PropertiesWrapper>
-            <Slideshow pictures={property.pictures} />
-            <FirstSectionWrapper>
-                <PropertyDiv>
+            {property.pictures? <Slideshow pictures={property.pictures} /> : null}
+            <GlobalSectionWrapper>
+                <FirstSectionWrapper>
                     <h1>{property.title}</h1>
                     <h3>{property.location}</h3>
-                </PropertyDiv>
-                <HostDiv>
-                    <p>{property.host?.name}</p>
-                    <img src={property.host?.picture ? property.host.picture : null} alt={property.host?.name}></img>
-                </HostDiv>
-            </FirstSectionWrapper>
-            <SecondSectionWrapper>
-                <TagsWrapper>
-                    {property.tags?.map((tag, index) => (
-                        <p key={index}>{tag}</p>
-                    ))}
-                </TagsWrapper>
-                <StarsWrapper>{rating(property.rating).map(star => star)}</StarsWrapper>
-            </SecondSectionWrapper>
+                    <TagsWrapper>
+                        {property.tags?.map((tag, index) => (
+                            <p key={index}>{tag}</p>
+                        ))}
+                    </TagsWrapper>
+                </FirstSectionWrapper>
+                <SecondSectionWrapper>
+                    <HostDiv>
+                        <p>{property.host?.name}</p>
+                        <img src={property.host?.picture ? property.host.picture : null} alt={property.host?.name}></img>
+                    </HostDiv>
+                    <StarsWrapper>{rating(property.rating).map(star => star)}</StarsWrapper>
+                </SecondSectionWrapper>
+            </GlobalSectionWrapper>
             <CollapsesWrapper>
                 <Collapse label={"Description"} width="45%">
                     <p>{property.description}</p>

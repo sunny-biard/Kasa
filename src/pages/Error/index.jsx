@@ -5,6 +5,7 @@ const ErrorWrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     justify-content: center;
     color: #FF6060;
     gap: 100px;
@@ -17,6 +18,16 @@ const ErrorWrapper = styled.div`
         font-size: 36px;
         font-weight: 500;
         margin: 0;
+    }
+
+    @media (max-width: 768px) {
+        h1 {
+            font-size: 96px;
+        }
+        h3 {
+            font-size: 18px;
+        }
+
     }
 `
 

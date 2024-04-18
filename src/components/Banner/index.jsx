@@ -14,10 +14,18 @@ const BannerWrapper = styled.div`
   background-size: cover;
   height: 220px;
   h1 {
+    padding: 0 20px;
     color: white;
     font-size: 48px;
     font-weight: 700;
     text-shadow: 1px 1px 2px black;
+  }
+
+  @media (max-width: 768px) {
+    height: 110px;
+    h1 {
+      font-size: 24px;
+    }
   }
 `
 

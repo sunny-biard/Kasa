@@ -10,19 +10,24 @@ const CardsWrapper = styled.div`
     border-radius: 25px;
     background-color: #F6F6F6;
     padding: 60px;
+
+    @media (max-width: 768px) {
+        background-color: white;
+        padding: 0;
+      }
 `
 
 const CardContent = styled(Link)`
     position: relative;
     width: 340px;
     height: 340px;
-    border-radius: 10px;
+    border-radius: 25px;
     background-image: linear-gradient(to bottom, #ff4141, #f94040, #f34040, #ed3f3f, #e73e3e);
     cursor: pointer;
     img {
         width: 100%;
         height: 100%;
-        border-radius: 10px;
+        border-radius: 25px;
         box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
         background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);
     }
@@ -36,6 +41,10 @@ const CardContent = styled(Link)`
         width: 80%;
         text-shadow: 0 3px 10px black;
     }
+
+    @media (max-width: 768px) {
+        width: 100%;
+      }
 `
 
 function Card() {

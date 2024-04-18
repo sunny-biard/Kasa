@@ -11,6 +11,11 @@ const FooterWrapper = styled.div`
     position: absolute;
     left: 0;
     width: 100%;
+    margin-top: auto;
+
+    @media (max-width: 768px) {
+        padding: 75px 0;
+    }
 `
 
 const StyledImg = styled.img`
@@ -23,8 +28,14 @@ const StyledP = styled.p`
     padding: 15px;
     color: white;
     text-decoration: none;
+    text-align: center;
     font-weight: 500;
     font-size: 24px;
+
+    @media (max-width: 768px) {
+        width: 130px;
+        font-size: 12px;
+    }
 `
 
 function Footer() {

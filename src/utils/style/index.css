@@ -1,0 +1,19 @@
+.animationStart {
+    animation-name: slideFromTop;
+    animation-delay: 500ms;
+}
+
+.animationEnd {
+    animation-name: slideFromBottom;
+    animation-delay: 500ms;
+}
+
+@keyframes slideFromTop {
+	from { transform: translateY(-50px); }
+	to { transform: translateY(0); }
+}
+
+@keyframes slideFromBottom {
+	from { transform: translateY(0); }
+	to { transform: translateY(-50px); }
+}

@@ -24,6 +24,10 @@ const StyledP = styled.p`
     text-align: center;
     bottom: 0;
     left: 50%;
+
+    @media (max-width: 768px) {
+        display: none;
+    }
 `
 
 const StyledArrowLeft = styled.img`

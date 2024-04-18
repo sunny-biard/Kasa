@@ -11,9 +11,17 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
     body {
+        box-sizing: border-box;
         margin: 0;
         padding: 0 55px;
         font-family: 'Arial';
+    }
+
+    @media (max-width: 768px) {
+        body {
+            padding: 0 25px;
+        }
+
     }
 `
  

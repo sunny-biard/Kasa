@@ -13,6 +13,11 @@ const HeaderWrapper = styled.div`
 const StyledImg = styled.img`
     width: 210px;
     height: 68px;
+
+    @media (max-width: 768px) {
+        width: 145px;
+        height: 45px;
+      }
 `
 
 const StyledNav = styled.nav`
@@ -28,6 +33,10 @@ const StyledNavLink = styled(NavLink)`
     &.active {
         text-decoration : underline;
     }
+
+    @media (max-width: 768px) {
+        font-size: 16px;
+      }
 `
 
 function Header() {
