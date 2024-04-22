@@ -1,10 +1,10 @@
-import styled from 'styled-components';
-import { useLocation, useNavigate } from 'react-router-dom';
-import React, { useState, useEffect} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons/faStar'
-import Collapse from '../../components/Collapse';
-import Slideshow from '../../components/Slideshow';
+import styled from "styled-components";
+import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState, useEffect} from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faStar } from "@fortawesome/free-solid-svg-icons/faStar"
+import Collapse from "../../components/Collapse";
+import Slideshow from "../../components/Slideshow";
  
 const PropertiesWrapper = styled.div`
     display: flex;

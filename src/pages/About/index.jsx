@@ -1,7 +1,7 @@
-import styled from 'styled-components'
-import Banner from '../../components/Banner'
-import Collapse from '../../components/Collapse'
-import backgroundImg2 from '../../utils/images/backgroundImg2.jpg'
+import styled from "styled-components"
+import Banner from "../../components/Banner"
+import Collapse from "../../components/Collapse"
+import backgroundImg2 from "../../utils/images/backgroundImg2.jpg"
 
 const AboutWrapper = styled.section`
     display: flex;
@@ -22,7 +22,7 @@ function About() {
  
     return (
         <AboutWrapper>
-            <Banner backgroundImg={backgroundImg2}/>
+            <Banner backgroundimg={backgroundImg2}/>
             <CollapseWrapper>
                 <Collapse label={"Fiabilité"} width="90%">
                     <p>Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes.</p>

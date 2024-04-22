@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import React, { useState, useEffect} from 'react';
-import { Link } from 'react-router-dom'
+import styled from "styled-components"
+import React, { useState, useEffect} from "react";
+import { Link } from "react-router-dom"
 
 const CardsWrapper = styled.div`
     display: flex;
@@ -53,7 +53,7 @@ function Card() {
     const [isDataLoading, setDataLoading] = useState(true);
  
     useEffect(() => {
-        fetch('http://localhost:8080/api/properties/')
+        fetch("http://localhost:8080/api/properties/")
             .then(response => response.json())
             .then(data => {
                 setProperties(data);

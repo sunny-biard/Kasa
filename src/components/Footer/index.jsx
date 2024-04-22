@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import logo from '../../utils/images/logo.png';
+import styled from "styled-components"
+import logo from "../../utils/images/logo.png";
 
 const FooterWrapper = styled.div`
     display: flex;

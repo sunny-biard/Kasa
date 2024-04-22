@@ -1,6 +1,6 @@
-import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
-import logo from '../../utils/images/logo.png';
+import { NavLink } from "react-router-dom"
+import styled from "styled-components"
+import logo from "../../utils/images/logo.png";
 
 const HeaderWrapper = styled.div`
     display: flex;
@@ -23,6 +23,10 @@ const StyledImg = styled.img`
 const StyledNav = styled.nav`
     display: flex;
     gap: 60px;
+
+    @media (max-width: 768px) {
+        gap: 15px;
+      }
 `
 
 const StyledNavLink = styled(NavLink)`

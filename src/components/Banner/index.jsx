@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 const BannerWrapper = styled.div`
   display: flex;
@@ -9,7 +9,7 @@ const BannerWrapper = styled.div`
   background-image: linear-gradient(
     rgba(0, 0, 0, 0.5), 
     rgba(0, 0, 0, 0.5)
-    ),url(${props => props.$backgroundImg});
+    ),url(${props => props.$backgroundimg});
   background-position: 50% 50%;
   background-size: cover;
   height: 220px;
@@ -29,10 +29,10 @@ const BannerWrapper = styled.div`
   }
 `
 
-function Banner({message, backgroundImg}) {
+function Banner({message, backgroundimg}) {
 
     return (
-        <BannerWrapper $backgroundImg={backgroundImg}>
+        <BannerWrapper $backgroundimg={backgroundimg}>
             <h1>{message}</h1>
         </BannerWrapper>
     )

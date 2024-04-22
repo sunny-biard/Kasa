@@ -1,6 +1,6 @@
-import styled, { keyframes, css } from 'styled-components';
-import React, { useState } from 'react';
-import Arrow from '../../utils/images/collapse-up.png';
+import styled, { keyframes, css } from "styled-components";
+import React, { useState } from "react";
+import Arrow from "../../utils/images/collapse-up.png";
 
 const CollapseWrapper = styled.div`
     display: flex;
@@ -90,7 +90,7 @@ const Collapse = (props) => {
     }
 
     return (
-        <CollapseWrapper width={props.width}>
+        <CollapseWrapper data-testid="CollapseWrapper" width={props.width}>
             <CollapseArea>
                 <h1>{props.label}</h1>
                 <button onClick={handleClick}><CollapseIcon src={Arrow} alt="Bouton flèche" open={open ? true : false}/></button>
