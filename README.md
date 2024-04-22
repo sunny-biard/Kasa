@@ -1,6 +1,6 @@
 # Site "Kasa"
 
-Projet Openclassrooms "Créez une application web de location immobilière avec React" par Sunny BIARD
+Projet Openclassrooms "Créez une application web de location immobilière avec React" par Sunny BIARD.
 
 ## Déploiement du projet
 
