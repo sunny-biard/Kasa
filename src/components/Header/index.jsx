@@ -39,7 +39,8 @@ const StyledNavLink = styled(NavLink)`
     }
 
     @media (max-width: 768px) {
-        font-size: 16px;
+        text-transform: uppercase;
+        font-size: 14px;
       }
 `
 

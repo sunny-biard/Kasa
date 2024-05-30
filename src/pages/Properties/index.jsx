@@ -94,6 +94,9 @@ const TagsWrapper = styled.div`
         border-radius: 10px;
         margin: 0;
     }
+    @media (max-width: 768px) {
+        flex-wrap: wrap;
+    }
 `
 
 const CollapsesWrapper = styled.div`
@@ -143,7 +146,7 @@ function Properties() {
                 console.log(error);
             });
 
-    }, [state.item.id, navigate]);
+    }, []);
 
     const rating = (n) => {
         
